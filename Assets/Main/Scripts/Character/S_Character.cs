@@ -145,12 +145,13 @@ public class S_Character : S_PoolObject
             GM_Main.m_PoolManager.GetPoolObject(_Explosion, m_Transform.position, m_Transform.rotation).Init(m_IsPlayer);
 
             m_isActive = false;
-            if(m_IsPlayer) GM_Main.m_Room.SpawnPlayer();
+            if (m_IsPlayer) GM_Main.m_Room.SpawnPlayer();
             else GM_Main.m_Room.SpawnAI();
             ScoreEvent(1, m_IsPlayer);
             S_Camera.ShakeCamera(8.0f, 8.0f, 0.1f, 0.5f);
             S_Camera.Glicth();
         }
+        else { if(!m_IsPlayer) _Collised = false; }
     }
 
     private void AILogic()
