@@ -39,6 +39,21 @@ public class S_Shoot : S_PoolObject
         _PlayOwner = _Onwer;
         if (_PlayOwner) _Renderer.sharedMaterial = _PlayerMaterial;
         else _Renderer.sharedMaterial = _AIMaterial;
+
+        switch (GM_Main.m_Dificule)
+        {
+            case GM_Main.Dificule.Easy:
+                _Speed = 10.0f;
+                break;
+
+            case GM_Main.Dificule.Medium:
+                _Speed = 15.0f;
+                break;
+
+            case GM_Main.Dificule.Hard:
+                _Speed = 20.0f;
+                break;
+        }
     }
 
     internal override void LifeCicle(float _deltaTime, GM_Main.GameState _gameState)
